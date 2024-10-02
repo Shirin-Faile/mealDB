@@ -21,11 +21,22 @@ const LogIn = () => {
     }
 
     return (
-        <div>
-            <p>To log in please enter your user name</p>
-            <label htmlFor="user-input">Enter User Name</label>
-            <input id="user-input" onChange={handleChange} />
-            <button onClick={handleClick}>Log In</button>
+        <div className="bg-green-100 p-6 rounded-lg shadow-md w-full max-w-md mx-auto mt-10">
+            <p className="text-lg text-green-900 font-semibold mb-4">
+                To log in please enter your user name
+            </p>
+            <div className="mb-4">
+                <label htmlFor="user-input" className="block text-sm text-green-700 mb-2">
+                    Enter User Name
+                </label>
+                <input 
+                id="user-input" 
+                onChange={handleChange}
+                className="w-full p-2 border border-green-400 rounded-md focus:outline-none focus:border-green-700" 
+                />
+            </div>
+            <button 
+            onClick={handleClick} className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition-colors">Log In</button>
         </div>
     )
 }
