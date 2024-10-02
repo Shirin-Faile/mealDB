@@ -5,7 +5,7 @@ import { UserContextType } from "@/utils/types";
 import Menu from "../Menu";
 
 const LogInWrapper = ({children}:{children:React.ReactNode}) => {
-    const { user } = useUserContext() as UserContextType
+    const { user } = useUserContext() as UserContextType;
 
     return (
         <div>

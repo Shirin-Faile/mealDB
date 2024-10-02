@@ -15,7 +15,7 @@ const LogIn = () => {
 
     const handleClick = () => {
         const loggedInUser:UserType[] = registeredUsers.filter((user:UserType) => user.name === userInput)
-        if (loggedInUser.length) {
+        if (loggedInUser) {
             setUser(loggedInUser[0])
         }
     }
