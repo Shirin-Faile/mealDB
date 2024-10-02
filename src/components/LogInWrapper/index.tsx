@@ -14,7 +14,7 @@ const LogInWrapper = ({children}:{children:React.ReactNode}) => {
             ) : (
                 <div className="text-center w-full max-w-md">
                     <Menu />
-                    <p className="text-xl text-green-900 font-bold mt-6">Hi {user.name}</p>
+                    <p className="text-xl text-green-900 font-bold mt-6">Welcome back, {user.name}!</p>
                     <div className="mt-4">
                         {children}
                     </div>

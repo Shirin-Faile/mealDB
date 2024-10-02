@@ -23,11 +23,11 @@ const LogIn = () => {
     return (
         <div className="bg-green-100 p-6 rounded-lg shadow-md w-full max-w-md mx-auto mt-10">
             <p className="text-lg text-green-900 font-semibold mb-4">
-                To log in please enter your user name
+                Please enter your username to log in.
             </p>
             <div className="mb-4">
                 <label htmlFor="user-input" className="block text-sm text-green-700 mb-2">
-                    Enter User Name
+                    Your Username:
                 </label>
                 <input 
                 id="user-input" 

@@ -26,12 +26,14 @@ const recipePage = ({params}: {params: {id:string}} ) => {
  }, [])
  
     return (
-        <div>
-            <p>Hello from recipe page. Id number is {id}</p>
-            {recipe && <div>
-                <p>{recipe.strMeal}</p>
-                <img height="auto" width="500px" src={recipe.strMealThumb} />
-            </div>}
+        <div className="min-h-screen p-6 flex flex-col items-center">
+            <p className="text-xl text-green-900 font-semibold mb-6">Id number is {id}</p>
+            {recipe && (
+                <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-lg text-center">
+                    <p className="text-2xl text-green-800 font-bold mb-4">{recipe.strMeal}</p>
+                    <img src={recipe.strMealThumb} className="w-full h-auto rounded-md shadow-lg"/>
+                </div>
+            )}
         </div>
     )
 }
