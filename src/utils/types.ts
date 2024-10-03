@@ -16,3 +16,11 @@ export type RecipeType = {
     strArea?: string,
     strInstructions?: string
 }
+
+export type CategoryType = {
+    map(arg0: (category: CategoryType) => import("react").JSX.Element): import("react").ReactNode
+    idCategory: string;
+    strCategory: string;
+    strCategoryThumb: string;
+    strCategoryDescription: string;
+}
