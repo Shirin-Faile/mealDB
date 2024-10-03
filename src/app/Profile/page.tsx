@@ -3,6 +3,7 @@
 import { useUserContext } from "@/utils/contexts";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link"; // Import Link to navigate to recipe details
 
 const Profile = () => {
     const userContext = useUserContext();
@@ -11,7 +12,6 @@ const Profile = () => {
 
     useEffect(() => {
         if (!userContext?.user) {
-            
             router.push("/LogIn");
         }
     }, [userContext, router]);
@@ -40,7 +40,7 @@ const Profile = () => {
                         {userContext.user.name}'s Profile
                     </h1>
 
-                    
+                    {/* Favorite Category Section */}
                     <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md text-center mb-6">
                         <p className="text-xl text-green-800 font-semibold mb-4">
                             Favorite Category: <span className="font-bold">{userContext.user.category}</span>
@@ -60,14 +60,17 @@ const Profile = () => {
                         </button>
                     </div>
 
-                    
+                    {/* Saved Recipes Section */}
                     <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md text-center">
                         <h2 className="text-2xl text-green-900 font-semibold mb-4">Saved Recipes</h2>
                         {userContext.user.savedRecipes.length > 0 ? (
                             <ul className="list-disc list-inside">
-                                {userContext.user.savedRecipes.map((recipeId) => (
-                                    <li key={recipeId} className="text-green-700">
-                                        Recipe ID: {recipeId}
+                                {userContext.user.savedRecipes.map((recipe) => (
+                                    <li key={recipe.idMeal} className="flex items-center mb-4">
+                                        <Link href={`/Recipe/${recipe.idMeal}`} className="flex items-center">
+                                            <img src={recipe.strMealThumb} alt={recipe.strMeal} className="w-16 h-16 object-cover rounded-md mr-2" />
+                                            <span className="text-green-700">{recipe.strMeal}</span>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -76,7 +79,7 @@ const Profile = () => {
                         )}
                     </div>
 
-                    
+                    {/* Log Out Button */}
                     <button
                         onClick={handleLogOut}
                         className="mt-6 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
@@ -90,4 +93,5 @@ const Profile = () => {
 };
 
 export default Profile;
+
 
